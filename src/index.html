@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ClipMaker | Viral Moment Generator</title>
+  <meta name="description" content="Transforme videos longos em cortes virais com IA em poucos cliques.">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Plus Jakarta Sans', 'ui-sans-serif', 'system-ui', 'sans-serif'],
+            display: ['Sora', 'ui-sans-serif', 'system-ui', 'sans-serif']
+          },
+          colors: {
+            brand: {
+              50: '#eefaf6',
+              100: '#d6f4e9',
+              200: '#b0e9d5',
+              300: '#83d9bc',
+              400: '#4fc29e',
+              500: '#2da987',
+              600: '#1f876c',
+              700: '#1c6c58',
+              800: '#1a5547',
+              900: '#18483d'
+            }
+          },
+          boxShadow: {
+            soft: '0 1px 2px rgba(15, 23, 42, 0.05), 0 6px 16px rgba(30, 64, 175, 0.08)',
+            softlg: '0 2px 8px rgba(15, 23, 42, 0.06), 0 24px 40px rgba(13, 148, 136, 0.14)'
+          },
+          backgroundImage: {
+            'hero-mesh': 'radial-gradient(circle at 12% 8%, rgba(45,169,135,0.20), transparent 35%), radial-gradient(circle at 80% 16%, rgba(56,189,248,0.18), transparent 36%), radial-gradient(circle at 50% 88%, rgba(16,185,129,0.14), transparent 40%)'
+          }
+        }
+      }
+    }
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Sora:wght@600;700;800&display=swap" rel="stylesheet">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%232da987' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><path d='M9.26 9a2 2 0 0 0-1.75 1'/><path d='m6 18 6-12 6 12'/><path d='M9.26 15a2 2 0 0 0 1.75 1'/><path d='M16 5l.01.01'/><path d='M4.26 11a.1.1 0 0 1 0-.01'/><path d='M19.74 11a.1.1 0 0 1 0 .01'/></svg>">
+</head>
+<body class="bg-slate-50 text-slate-900 antialiased selection:bg-brand-200/80">
+  <div class="fixed inset-0 -z-20 bg-hero-mesh"></div>
+  <div class="fixed inset-0 -z-10 bg-[linear-gradient(to_bottom,rgba(255,255,255,0.72),rgba(248,250,252,0.94))]"></div>
+
+  <header id="mainHeader" class="sticky top-0 z-40 border-b border-white/60 bg-white/55 backdrop-blur-md transition duration-300">
+    <div class="mx-auto flex h-20 w-full max-w-screen-2xl items-center justify-between px-4 sm:px-6 lg:px-8">
+      <a href="#" class="flex items-center gap-3">
+        <span class="grid h-10 w-10 place-items-center rounded-2xl bg-brand-500 text-white shadow-soft">
+          <i data-lucide="sparkles" class="h-5 w-5"></i>
+        </span>
+        <div>
+          <p class="font-display text-lg font-bold tracking-tight text-slate-900">ClipMaker</p>
+          <p class="text-xs font-medium text-slate-500">Viral Editing Engine</p>
+        </div>
+      </a>
+      <a href="#studio" class="rounded-full border border-slate-200/90 bg-white/80 px-5 py-2 text-sm font-semibold text-slate-700 shadow-sm transition duration-300 hover:scale-[1.02] hover:shadow-soft focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-400">Abrir Studio</a>
+    </div>
+  </header>
+
+  <main>
+    <section class="pt-12 pb-24 sm:pt-14 sm:pb-28 lg:pt-16 lg:pb-32">
+      <div class="mx-auto grid w-full max-w-screen-2xl items-center gap-12 px-4 sm:px-6 lg:grid-cols-12 lg:gap-8 lg:px-8">
+        <div class="hero-copy lg:col-span-6">
+          <p class="mb-6 inline-flex items-center gap-2 rounded-full border border-brand-200 bg-brand-50 px-4 py-2 text-xs font-semibold uppercase tracking-[0.16em] text-brand-700">
+            <i data-lucide="zap" class="h-4 w-4"></i>
+            AI-Powered Video Workflow
+          </p>
+          <h1 class="font-display text-[clamp(2rem,4vw,4rem)] font-bold tracking-tight text-slate-900">Encontre o momento viral do seu video em segundos.</h1>
+          <p class="mt-6 max-w-2xl text-[clamp(1rem,1.5vw,1.2rem)] leading-relaxed text-slate-500">Upload rapido com Cloudinary, analise automatica com Gemini e corte inteligente em um fluxo elegante, responsivo e pronto para producao.</p>
+          <div class="mt-10 flex flex-wrap gap-4">
+            <a href="#studio" class="inline-flex items-center gap-2 rounded-2xl bg-slate-900 px-6 py-3 text-sm font-semibold text-white shadow-soft transition duration-300 hover:scale-[1.02] hover:bg-slate-800 hover:shadow-softlg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-slate-400">
+              Ir para o Studio
+              <i data-lucide="arrow-right" class="h-4 w-4"></i>
+            </a>
+          </div>
+        </div>
+
+        <div class="hero-card lg:col-span-6">
+          <article class="rounded-3xl border border-white/70 bg-white/75 p-6 shadow-soft backdrop-blur-md sm:p-8">
+            <div class="flex items-center justify-between">
+              <p class="text-sm font-semibold tracking-tight text-slate-900">Pipeline em tempo real</p>
+              <span class="inline-flex items-center gap-2 rounded-full bg-emerald-50 px-3 py-1 text-xs font-semibold text-emerald-700">
+                <span class="h-2 w-2 animate-pulse rounded-full bg-emerald-500"></span>
+                Ativo
+              </span>
+            </div>
+            <div class="mt-6 space-y-4">
+              <div class="rounded-2xl border border-slate-200/80 bg-white p-4 shadow-sm transition duration-300 hover:scale-[1.02] hover:shadow-soft">
+                <div class="flex items-center gap-3">
+                  <span class="grid h-10 w-10 place-items-center rounded-xl bg-cyan-50 text-cyan-700"><i data-lucide="upload-cloud" class="h-5 w-5"></i></span>
+                  <div>
+                    <p class="text-sm font-semibold text-slate-900">1. Upload</p>
+                    <p class="text-xs text-slate-500">Envie seu video com seguranca e velocidade.</p>
+                  </div>
+                </div>
+              </div>
+              <div class="rounded-2xl border border-slate-200/80 bg-white p-4 shadow-sm transition duration-300 hover:scale-[1.02] hover:shadow-soft">
+                <div class="flex items-center gap-3">
+                  <span class="grid h-10 w-10 place-items-center rounded-xl bg-amber-50 text-amber-700"><i data-lucide="captions" class="h-5 w-5"></i></span>
+                  <div>
+                    <p class="text-sm font-semibold text-slate-900">2. Transcricao</p>
+                    <p class="text-xs text-slate-500">Aguardamos o arquivo .transcript automaticamente.</p>
+                  </div>
+                </div>
+              </div>
+              <div class="rounded-2xl border border-slate-200/80 bg-white p-4 shadow-sm transition duration-300 hover:scale-[1.02] hover:shadow-soft">
+                <div class="flex items-center gap-3">
+                  <span class="grid h-10 w-10 place-items-center rounded-xl bg-brand-50 text-brand-700"><i data-lucide="scissors" class="h-5 w-5"></i></span>
+                  <div>
+                    <p class="text-sm font-semibold text-slate-900">3. Corte viral</p>
+                    <p class="text-xs text-slate-500">Gemini retorna o intervalo ideal e geramos o clipe final.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="studio" class="py-24 sm:py-28 lg:py-32">
+      <div class="mx-auto w-full max-w-screen-2xl px-4 sm:px-6 lg:px-8">
+        <div class="grid gap-8 lg:grid-cols-12">
+          <article class="reveal rounded-3xl border border-white/70 bg-white/85 p-6 shadow-soft backdrop-blur-md sm:p-8 lg:col-span-5">
+            <p class="text-sm font-semibold uppercase tracking-[0.16em] text-brand-700">Studio</p>
+            <h2 class="mt-4 font-display text-3xl font-bold tracking-tight text-slate-900">Gere seu corte viral agora</h2>
+            <p class="mt-4 text-sm leading-relaxed text-slate-500">Insira a chave do Gemini e inicie o upload. O sistema atualiza o status de cada etapa ate o video final.</p>
+
+            <form id="appForm" class="mt-8 space-y-5" novalidate>
+              <label for="apiKey" class="block text-sm font-semibold text-slate-800">Chave da API Gemini</label>
+              <div class="relative">
+                <i data-lucide="key-round" class="pointer-events-none absolute left-4 top-1/2 h-4 w-4 -translate-y-1/2 text-slate-400"></i>
+                <input type="password" id="apiKey" autocomplete="off" placeholder="Cole sua chave API" class="w-full rounded-2xl border border-slate-200 bg-white py-3 pl-11 pr-4 text-sm text-slate-800 shadow-sm outline-none transition duration-300 placeholder:text-slate-400 focus:border-brand-300 focus:ring-4 focus:ring-brand-100">
+              </div>
+
+              <button type="button" id="uploadwidget" class="inline-flex w-full items-center justify-center gap-2 rounded-2xl bg-brand-600 px-5 py-3 text-sm font-semibold text-white shadow-soft transition duration-300 hover:scale-[1.02] hover:bg-brand-700 hover:shadow-softlg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-400 disabled:cursor-not-allowed disabled:opacity-60">
+                <i data-lucide="upload" class="h-4 w-4"></i>
+                Upload files
+              </button>
+            </form>
+
+            <div class="mt-6 rounded-2xl border border-slate-200 bg-slate-50 p-4">
+              <p class="text-xs font-semibold uppercase tracking-[0.12em] text-slate-500">Status do processamento</p>
+              <p id="status" class="mt-2 text-sm text-slate-700">Aguardando upload.</p>
+            </div>
+          </article>
+
+          <article class="reveal rounded-3xl border border-white/70 bg-white/85 p-4 shadow-soft sm:p-6 lg:col-span-7">
+            <div class="mb-4 flex items-center justify-between gap-4">
+              <h3 class="text-lg font-bold tracking-tight text-slate-900">Preview do clip final</h3>
+              <span id="clipTag" class="rounded-full bg-slate-100 px-3 py-1 text-xs font-medium text-slate-600">Sem video</span>
+            </div>
+            <div class="overflow-hidden rounded-2xl border border-slate-200 bg-slate-900/95 shadow-sm">
+              <video id="video" src="" controls playsinline class="aspect-video w-full bg-slate-950"></video>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="border-t border-white/70 py-10">
+    <div class="mx-auto flex w-full max-w-screen-2xl flex-col items-start justify-between gap-3 px-4 text-sm text-slate-500 sm:px-6 md:flex-row md:items-center lg:px-8">
+      <p>ClipMaker • Design system de alto padrao com performance e clareza.</p>
+      <p class="text-slate-400">Cloudinary + Gemini + GSAP</p>
+    </div>
+  </footer>
+
+  <script src="https://upload-widget.cloudinary.com/latest/global/all.js" type="text/javascript"></script>  
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+
+  <script type="text/javascript">
+    const el = {
+      status: document.getElementById('status'),
+      video: document.getElementById('video'),
+      apiKey: document.getElementById('apiKey'),
+      button: document.getElementById('uploadwidget'),
+      clipTag: document.getElementById('clipTag')
+    }
+
+    const app = {
+      transcriptionURL: '',
+      public_id: '',
+      setStatus: (text) => {
+        el.status.textContent = text;
+      },
+      setLoading: (isLoading) => {
+        el.button.disabled = isLoading;
+      },
+      waitForTranscription: async () => {
+        const maxAttempts = 30;
+        const delayMs = 2000;
+
+        if (!app.public_id) {
+          throw new Error('public_id não definido. Faça upload antes de buscar transcrição.');
+        }
+
+        for (let attempt = 1; attempt <= maxAttempts; attempt++) {
+          const version = `v${Date.now()}`;
+          const url = `https://res.cloudinary.com/${config.cloudName}/raw/upload/${version}/${app.public_id}.transcript`;
+          app.setStatus(`Processando transcricao... tentativa ${attempt}/${maxAttempts}`);
+
+          try {
+            const response = await fetch(url, { cache: 'no-store' });
+
+            if (response.ok) {
+              const text = await response.text();
+
+              if (text && text.trim().length > 0) {
+                app.transcriptionURL = url;
+                console.log(`Transcrição pronta na tentativa ${attempt}:`, url);
+                app.setStatus('Transcricao pronta. Buscando melhor recorte com IA...');
+                return text;
+              }
+            }
+          } catch (err) {
+            console.log(`Tentativa ${attempt} falhou:`, err.message);
+          }
+
+          if (attempt < maxAttempts) {
+            await new Promise((resolve) => setTimeout(resolve, delayMs));
+          }
+        }
+
+        throw new Error('Transcrição não ficou pronta após 30 tentativas.');
+      },
+      getTranscription: async () => {
+        const response = await fetch(app.transcriptionURL);
+        return await response.text();
+      },
+      getViralMoment: async () => {
+        const transcription = await app.getTranscription();
+        const model = 'gemini-3-flash-preview';
+        const endPointGemini = `https://generativelanguage.googleapis.com/v1beta/models/${model}:generateContent`
+
+        const prompt = `
+          Role: You are a professional video editor specializing in viral content.
+          Task: Analyze the transcription below and identify the most engaging, funny, or surprising segment.
+          Constraints:
+          1. Duration: Minimum 30 seconds, Maximum 60 seconds.
+          2. Format: Return ONLY the start and end string for Cloudinary. Format: so_<start_seconds>,eo_<end_seconds>
+          3. Examples: "so_10,eo_20" or "so_12.5,eo_45.2"
+          4. CRITICAL: Do not use markdown, do not use quotes, do not explain. Return ONLY the raw string.
+
+          Transcription:
+          ${transcription}
+          `;
+        const headers = {
+          'x-goog-api-key': el.apiKey.value,
+          'Content-Type': 'application/json',
+        };
+        const contents = [
+          {
+            parts: [
+              {
+                text: prompt
+              }
+            ]
+          }
+        ]
+
+        const maxRetries = 3;
+        const baseDelayMs = 1500;
+
+        for (let attempt = 1; attempt <= maxRetries; attempt++) {
+          app.setStatus(`Analisando transcricao com IA... tentativa ${attempt}/${maxRetries}`);
+          try {
+            const response = await fetch(endPointGemini, {
+              method: 'POST',
+              headers,
+              body: JSON.stringify({ contents }),
+            });
+
+            if (!response.ok) {
+              throw new Error(`Gemini retornou status ${response.status}`);
+            }
+
+            const data = await response.json();
+            const rawText = data?.candidates?.[0]?.content?.parts?.[0]?.text.trim();
+            return rawText.replace(/```/g, '').replace(/json/g, "").trim();
+
+          } catch (error) {
+            const isLastAttempt = attempt === maxRetries;
+            const delayMs = baseDelayMs * attempt;
+
+            console.log(`Falha ao conectar no Gemini (tentativa ${attempt}/${maxRetries}):`, error.message);
+
+            if (isLastAttempt) {
+              throw new Error('Não foi possível conectar ao Gemini após múltiplas tentativas.');
+            }
+
+            await new Promise((resolve) => setTimeout(resolve, delayMs));
+          }
+        }
+      },
+    }
+    
+    const config = {
+      cloudName: 'dzbik5sjo',
+      uploadPreset: 'upload_nlw_afco'
+    }
+  
+    const myWidget = cloudinary.createUploadWidget(config, async (error, result) => { 
+        if (!error && result && result.event === "success") { 
+          console.log('Done! Here is the image info: ', result.info); 
+          app.public_id = result.info.public_id;
+          app.setLoading(true);
+          app.setStatus('Upload concluido. Iniciando pipeline...');
+
+          try {
+            const isReady = await app.waitForTranscription();
+            if (!isReady) {
+               throw new Error('Erro ao buscar transcrição')
+            }
+            const viralMoment = await app.getViralMoment()
+            const viralMomentUrl = `https://res.cloudinary.com/${config.cloudName}/video/upload/${viralMoment}/${app.public_id}.mp4`;
+            el.video.setAttribute('src', viralMomentUrl);
+            el.video.load();
+            el.clipTag.textContent = 'Clip pronto';
+            app.setStatus('Clip gerado com sucesso. Aperte play para assistir.');
+          } catch (error) {
+            console.log('Erro ao esperar pela transcrição:', {error});
+            app.setStatus('Falha no processamento. Verifique sua API Key e tente novamente.');
+            el.clipTag.textContent = 'Falha';
+          } finally {
+            app.setLoading(false);
+          }
+        }
+      }
+    )
+
+    el.button.addEventListener("click", () => {
+        if (!el.apiKey.value) {
+          alert('Por favor, insira sua chave API do GEMINI antes de fazer upload.');
+          el.apiKey.focus();
+          return;
+        }
+        el.clipTag.textContent = 'Processando';
+        app.setStatus('Abrindo widget de upload...');
+        myWidget.open();
+      }, false);
+
+    lucide.createIcons();
+    gsap.registerPlugin(ScrollTrigger);
+
+    gsap.from('.hero-copy > *', {
+      y: 18,
+      opacity: 0,
+      duration: 0.75,
+      stagger: 0.08,
+      ease: 'power2.out'
+    });
+
+    gsap.from('.hero-card', {
+      y: 28,
+      opacity: 0,
+      duration: 0.9,
+      ease: 'power3.out',
+      delay: 0.15
+    });
+
+    gsap.to('.hero-copy', {
+      y: -36,
+      opacity: 0.92,
+      ease: 'none',
+      scrollTrigger: {
+        trigger: '.hero-copy',
+        start: 'top top',
+        end: 'bottom top',
+        scrub: true
+      }
+    });
+
+    gsap.to('.hero-card', {
+      y: -54,
+      ease: 'none',
+      scrollTrigger: {
+        trigger: '.hero-card',
+        start: 'top top',
+        end: 'bottom top',
+        scrub: true
+      }
+    });
+
+    ScrollTrigger.create({
+      start: 16,
+      onUpdate: (self) => {
+        const header = document.getElementById('mainHeader');
+        if (!header) return;
+
+        if (self.scroll() > 30) {
+          header.classList.add('shadow-soft', 'bg-white/80');
+          header.classList.remove('bg-white/55');
+        } else {
+          header.classList.remove('shadow-soft', 'bg-white/80');
+          header.classList.add('bg-white/55');
+        }
+      }
+    });
+
+    gsap.utils.toArray('.reveal').forEach((card) => {
+      gsap.from(card, {
+        scrollTrigger: {
+          trigger: card,
+          start: 'top 86%',
+          toggleActions: 'play none none reverse'
+        },
+        y: 30,
+        opacity: 0,
+        duration: 0.75,
+        ease: 'power2.out'
+      });
+    });
+
+    ScrollTrigger.refresh();
+  </script>
+</body>
+</html>
